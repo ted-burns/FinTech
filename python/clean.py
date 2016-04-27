@@ -95,7 +95,7 @@ def avg_correlation(series1, series2):
 def name_to_timeseries(stock):
     return to_additive_return(quotes(stock))
 
-def print_cors(stocks=stocks_incl):
+def print_corrs(stocks=stocks_incl):
     corrs = dict()
     for stock1 in stocks:
         ar1 = name_to_timeseries(stock1)
@@ -108,4 +108,7 @@ def print_cors(stocks=stocks_incl):
             corr = avg_correlation(ar1,ar2)
             print(stock1 + " " + stock2 + " " + str(corr))
             corrs[stock1 + " " + stock2] = corr
+    return corrs
+
+corrs = print_corrs()
         
